@@ -9,13 +9,15 @@ class Pokemon
     string tipo;
     int saude;
     int ataque;
+    int defesa;
 
-    Pokemon(string n, string t, int s, int a)
+    Pokemon(string n, string t, int s, int a, int d)
     {
         nome = n;
         tipo = t;
         saude = s;
         ataque = a;
+        defesa = d
     }
 
     void AtaquePokemon(int dano)
@@ -35,6 +37,7 @@ class Pokemon
         cout << "Tipo: " << tipo << endl;   
         cout << "Saúde: " << saude << endl;
         cout << "Ataque: " << ataque << endl;
+        cout << "Defesa: " << defesa << endl;
     }
 
 };
@@ -48,7 +51,7 @@ int main ()
     cout<<"Digite 1 para utilizar o seu Pokemon ou 2 para utilizar um do ginásio: "<< endl;
     cin >> escolha;
     cin.ignore();
-    Pokemon p1("","", 0, 0);
+    Pokemon p1("","", 0, 0,0);
     if(escolha == 1)
     {
         string nome, tipo;
@@ -62,13 +65,15 @@ int main ()
         cin >> saude;
         cout<<"Digite o ataque dele: " << endl;
         cin >> ataque;
+        cout<<"Digite a defesa dele: " << endl;
+        cin >> defesa;
         p1 = Pokemon (nome, tipo, saude, ataque);
         p1.exibirdados();
 
     }
     else
     {
-        cout<<"Você escolheu batalhar com um Pokemon do ginazio!" << endl;
+        cout<<"Você escolheu batalhar com um Pokemon do ginásio!" << endl;
         cout<< "As opções são as seguintes: " << endl;
         cout<<"1 - Pikachu" << endl;
         cout<<"2 - Charmander" << endl;
@@ -77,14 +82,14 @@ int main ()
         if(escolha2 == 1)
         {
             cout<<"Você escolheu o Pikachu!" << endl;
-            p1 = Pokemon ("Pikachu", "Elétrico", 135, 30);
+            p1 = Pokemon ("Pikachu", "Elétrico", 135, 30,15);
             p1.exibirdados();
 
         }
         else if(escolha2 == 2)
         {
             cout<<"Você escolheu o Charmander!" << endl;
-            p1 = Pokemon("Charmander", "Fogo", 150, 25);
+            p1 = Pokemon("Charmander", "Fogo", 150, 25,5);
             p1.exibirdados();
 
         }
@@ -95,8 +100,8 @@ int main ()
         }
     
     }
-    cout<<"Muito Bem!Você usará o "<< p1.nome <<" e eu usarei o Pokemon do ginásio!(Ratata)" << endl;
-   Pokemon p2("Ratata", "Normal", 100, 20);
+    cout<<"Muito Bem!Você usará o "<< p1.nome <<" e eu usarei o Pokemon do ginásio! O Ratata!" << endl;
+   Pokemon p2("Ratata", "Normal", 100, 20,10);
     p2.exibirdados();
     while(p1.saude > 0 && p2.saude > 0)
     {
