@@ -141,7 +141,6 @@ int main ()
         cout<<p2.nome << " recebeu dano!" << endl;   
         cout<<p2.nome << " recebeu "<< danop1 << " pontos de dano de "<< p1.nome << "!" << endl;
         p1.exibirdados();
-        cout<<"------------------------------------"<<endl;
         p2.exibirdados();
         if(p2.saude <= 0)
             {
@@ -149,16 +148,13 @@ int main ()
                 cout<<p1.nome<<" Venceu a batalha!" << endl;
                 break;
             }   
-        cout<<"------------------------------------"<<endl;
         cout<<p2.nome<<" Atacou!" << endl;
         p1.AtaquePokemon(p2.ataque, p2, p1);
         cout<<p1.nome <<" recebeu dano!" << endl;
                 cout<<p2.nome << " recebeu "<< danop2 << " pontos de ataque de "<< p1.nome << "!" << endl;
 
         p2.exibirdados();
-         cout<<"------------------------------------"<<endl;
         p1.exibirdados();
-        cout<<"------------------------------------"<<endl;
         if(p1.saude <= 0)
             {
                 cout<<p1.nome<<" foi derrotado!" << endl;
