@@ -23,7 +23,7 @@ class Pokemon
     // fogo > planta
     // planta > água
     // água > fogo
-    void AtaquePokemon(int dano, Pokemon pokemon1, Pokemon pokemon2)
+    int AtaquePokemon(int dano, Pokemon pokemon1, Pokemon pokemon2)
     {
         dano = (dano - (defesa/2))* tipos(pokemon1, pokemon2);
         if(dano < 0) 
@@ -35,8 +35,9 @@ class Pokemon
         {
             saude = 0; 
             cout << nome << " foi derrotado!" << endl;
-            return;
+            return dano;
         }
+        return dano;
     }
 
     float tipos( Pokemon pokemon1, Pokemon pokemon2)
@@ -133,9 +134,12 @@ int main ()
     p2.exibirdados();
     while(p1.saude > 0 && p2.saude > 0)
     {
+        int danop1 = p1.AtaquePokemon(p1.ataque, p1, p2);
+        int danop2 = p2.AtaquePokemon(p2.ataque, p2, p1);
         cout<< p1.nome <<" Atacou!" << endl;
         p2.AtaquePokemon(p1.ataque, p1, p2);
         cout<<p2.nome << " recebeu dano!" << endl;   
+        cout<<p2.nome << " recebeu "<< danop1 << " pontos de dano de "<< p1.nome << "!" << endl;
         p1.exibirdados();
         cout<<"------------------------------------"<<endl;
         p2.exibirdados();
@@ -149,6 +153,8 @@ int main ()
         cout<<p2.nome<<" Atacou!" << endl;
         p1.AtaquePokemon(p2.ataque, p2, p1);
         cout<<p1.nome <<" recebeu dano!" << endl;
+                cout<<p2.nome << " recebeu "<< danop2 << " pontos de ataque de "<< p1.nome << "!" << endl;
+
         p2.exibirdados();
          cout<<"------------------------------------"<<endl;
         p1.exibirdados();
