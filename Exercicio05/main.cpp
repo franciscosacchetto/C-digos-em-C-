@@ -146,7 +146,6 @@ int main ()
             {
                 cout<<p2.nome << " foi derrotado!" << endl;
                 cout<<p1.nome<<" Venceu a batalha!" << endl;
-                rerwr
                 break;
             }   
         cout<<p2.nome<<" Atacou!" << endl;
